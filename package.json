@@ -1,12 +1,12 @@
 {
-  "name": "Telegram",
-  "description": "Telegram Web App.\nMore info & source code here: https://github.com/zhukov/webogram",
-  "version": "0.6.0",
+  "name": "Pelegrass",
+  "description": "Telegrass/Telegram Web App.\nMore info & source code here: https://github.com/pelegrass",
+  "version": "0.0.1",
   "main": "app/index.html",
   "single-instance": true,
   "dom_storage_quota": 40,
   "window": {
-    "title": "Telegram",
+    "title": "Pelegrass",
     "icon": "app/img/icons/icon128.png",
     "toolbar": false,
     "frame": true,
@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhukov/webogram.git"
+    "url": "https://github.com/pelegrass/pelegrass.github.io.git"
   },
   "author": "zhukov",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/zhukov/webogram/issues"
+    "url": "https://github.com/pelegrass/pelegrass.github.io/issues"
   },
   "locales": [
     "en-us",
@@ -40,7 +40,7 @@
     "nl-nl",
     "pt-br"
   ],
-  "homepage": "http://zhukov.github.io/webogram",
+  "homepage": "https://pelegrass.github.io/",
   "devDependencies": {
     "del": "^1.2.0",
     "event-stream": "^3.1.0",

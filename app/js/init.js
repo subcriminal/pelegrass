@@ -78,6 +78,10 @@
     }
     bootReady.i18n_ng = Config.I18n.locale == defaultLocale // Already included
 
+    $.getJSON('reviews.json').success(function (json) {
+      Config.reviews = json
+    })
+
     $.getJSON('js/locales/' + Config.I18n.locale + '.json').success(function (json) {
       Config.I18n.messages = json
       bootReady.i18n_messages = true

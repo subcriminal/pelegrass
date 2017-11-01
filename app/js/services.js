@@ -284,6 +284,13 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
       scope.userID = userID
       scope.override = override || {}
 
+      scope.peerHistory = {peerID: userID, messages: [], ids: []}
+      scope.historyPeer = {id: userID}
+      scope.selectedMsgs = []
+      scope.state = {}
+      scope.state.empty = true
+      scope.state.mayBeHasMore = true
+
       var modalInstance = $modal.open({
         templateUrl: templateUrl('user_modal'),
         controller: 'UserModalController',

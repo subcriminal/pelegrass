@@ -6,7 +6,7 @@
       <a class="navbar-peer-wrap" my-peer-photolink="historyPeer.id" peer-watch="true"></a>
 
       <div class="navbar-toggle-wrap dropdown" dropdown ng-switch="!curDialog.peer">
-        <a class="dropdown-toggle navbar-toggle" dropdown-toggle>
+        <a class="dropdown-toggle navbar-toggle" dropdown-toggle ng-style="historyFilter.filterType && {'filter': 'saturate(10)'}">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -19,6 +19,7 @@
           <li><a ng-click="logOut()" my-i18n="head_log_out"></a></li>
         </ul>
         <ul ng-switch-default class="dropdown-menu">
+          <!--
           <li><a ng-click="toggleEdit()" my-i18n="head_select_messages"></a></li>
           <li ng-if="!historyFilter.mediaType" class="divider"></li>
           <li ng-if="!historyFilter.mediaType"><a ng-click="toggleMedia('photos')" my-i18n="head_media_photos"></a></li>
@@ -26,6 +27,12 @@
           <li ng-if="!historyFilter.mediaType"><a ng-click="toggleMedia('documents')" my-i18n="head_media_documents"></a></li>
           <li ng-if="!historyFilter.mediaType"><a ng-click="toggleMedia('audio')" my-i18n="head_media_audio"></a></li>
           <li ng-if="!historyFilter.mediaType"><a ng-click="toggleMedia('round')" my-i18n="head_media_round"></a></li>
+          -->
+          <li ng-if="!historyFilter.mediaType"><a ng-class="!historyFilter.filterType && 'navbar-filter-selected'" ng-click="toggleFilter()">הצג הכל</a></li>
+          <li ng-if="!historyFilter.mediaType"><a ng-class="historyFilter.filterType == 'אינדיקה' && 'navbar-filter-selected'" ng-click="toggleFilter('אינדיקה')">אינדיקה</a></li>
+          <li ng-if="!historyFilter.mediaType"><a ng-class="historyFilter.filterType == 'סאטיבה' && 'navbar-filter-selected'" ng-click="toggleFilter('סאטיבה')">סאטיבה</a></li>
+          <li ng-if="!historyFilter.mediaType"><a ng-class="historyFilter.filterType == 'אלסקה' && 'navbar-filter-selected'" ng-click="toggleFilter('אלסקה')">אלסקה</a></li>
+          <li ng-if="!historyFilter.mediaType"><a ng-class="historyFilter.filterType == 'סקאנק' && navbar-filter-selected" ng-click="toggleFilter('סקאנק')">סקאנק</a></li>
         </ul>
       </div>
 

@@ -18,6 +18,9 @@
       <span class="media_modal_date" ng-bind="photo.date | dateOrTime :true"></span>
     </div>
 
+    <div class="media_modal_bottom_caption" ng-if="photo.fwdFromID">
+      <span class="media_modal_title" ng-bind-html="photo.caption"></span>
+    </div>
   </div>
 </div>
 
@@ -33,6 +36,7 @@
         <i class="icon icon-back"></i>
 
         <div class="navbar-quick-back-title">
+          <!--
           <h4 class="media_modal_title_wrap" ng-switch="count > 1 &amp;&amp; pos > 0">
             <my-i18n ng-switch-when="true" msgid="media_modal_photo_index">
               <my-i18n-param name="pos" ng-bind="pos"></my-i18n-param>
@@ -40,8 +44,17 @@
             </my-i18n>
             <my-i18n ng-switch-default msgid="media_modal_photo">
           </h4>
+          -->
+        <h4 class="media_modal_title_wrap" my-peer-link="photo.user_id" peer-watch="false"></h4>
         </div>
       </a>
+    </div>
+    
+    <div class="media_modal_top_caption" ng-if="photo.fwdFromID">
+      <a class="media_modal_author" my-peer-link="photo.fwdFromID" peer-watch="true"></a>
+        <div class="media_modal_reviews_rank">
+    <reviews-rank ng-value="photo.fwdFromID" value="" ></div>
+  </div>
     </div>
   </div>
 </div>

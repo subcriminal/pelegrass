@@ -1,8 +1,8 @@
 {
-  "name": "Telegram",
-  "description": "Telegram Web App.\nMore info & source code here: https://github.com/zhukov/webogram",
-  "version": "0.6.0",
-  "short_name": "Telegram",
+  "name": "Pelegrass",
+  "description": "Telegrass/Telegram Web App.\nMore info & source code here: https://github.com/pelegrass",
+  "version": "0.0.1",
+  "short_name": "Pelegrass",
   "manifest_version": 2,
   "app": {
     "background": {

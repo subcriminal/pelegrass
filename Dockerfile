@@ -1,7 +1,7 @@
 FROM node
 
-ADD . /opt/webogram
-WORKDIR /opt/webogram
+ADD . /opt/pelegrass
+WORKDIR /opt/pelegrass
 
 RUN npm install -g gulp && npm install
 

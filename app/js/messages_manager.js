@@ -1346,6 +1346,14 @@ angular.module('myApp.services')
               break
             case 'messageMediaPhoto':
               AppPhotosManager.savePhoto(apiMessage.media.photo, mediaContext)
+              var message = apiMessage.media ? apiMessage.media.caption : apiMessage.message
+              if (message) {
+                    if (message.match("אין משלוח")) {
+                        apiMessage.delivery = false
+                    } else if (message.match("משלוח")) {
+                        apiMessage.delivery = true
+                    }
+              }
               break
             case 'messageMediaDocument':
               AppDocsManager.saveDoc(apiMessage.media.document, mediaContext)

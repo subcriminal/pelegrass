@@ -4046,3 +4046,71 @@ angular.module('myApp.directives', ['myApp.filters'])
       link: link
     }
   })
+  
+   .directive('reviewsRank', function (AppUsersManager, AppMessagesManager) {
+    return {
+    scope: {
+        'media': '=reviewsRank',
+        'value': '=value',
+        'showall': '=showall'
+      },
+      template: '<div class="reviews_rank">\
+                    <span class="im_message_reviews_rank_title" style="display: {{display_title}};">{{review}}</span>\
+                    <div >\
+                        <span class="rating_bar" style="color: rgba(150, 150,150, .7); position: absolute;" title="Rank: {{review}}\nReviews: {{review_count}}">\
+                            <span class="glyphicon glyphicon-star"></span>\
+                            <span class="glyphicon glyphicon-star"></span>\
+                            <span class="glyphicon glyphicon-star"></span>\
+                            <span class="glyphicon glyphicon-star"></span>\
+                            <span class="glyphicon glyphicon-star"></span>\
+                        </span>\
+                        <span class="rating_bar" style="color:{{review_color}}; width: {{review*20}}%" title="Rank: {{review}}\nReviews: {{review_count}}">\
+                            <span class="glyphicon glyphicon-star"></span>\
+                            <span class="glyphicon glyphicon-star"></span>\
+                            <span class="glyphicon glyphicon-star"></span>\
+                            <span class="glyphicon glyphicon-star"></span>\
+                            <span class="glyphicon glyphicon-star"></span>\
+                        </span>\
+                    </div>\
+                    <span style="display: block;top: 6px;position: relative;">\
+                        <i class="glyphicon glyphicon-user" title="Rank: {{review}}\nReviews: {{review_count}}" style="font-size:12px"></i>\
+                        <span  class="im_message_cnt" title="Rank: {{review}}\nReviews: {{review_count}}">{{review_count}}</span>\
+                    </span>\
+                </div>',
+      link: function ($scope) {
+        function update () {
+            if (!Config.reviews) {
+                return false
+            }
+            $scope.review = 0
+            $scope.review_count = 0
+            $scope.review_color = "#309030"
+            $scope.display_title = $scope.showall ? "block" : "none"
+            var user = $scope.value || AppMessagesManager.getMessage($scope.$parent.messageID).fwdFromID;
+            var user_username = '@' + AppUsersManager.getUser(user).username
+            if (user_username) {
+                user_username = user_username.toLowerCase()
+                $scope.review = (Config.reviews[user_username] || {rating:0}).rating
+                if (!$scope.review)
+                    return false;
+                $scope.review_count = (Config.reviews[user_username] || {count:0}).count
+                $scope.review = $scope.review / $scope.review_count
+                $scope.review = Math.floor($scope.review * 10) / 10
+                if ($scope.review_count > 42) {
+                    if ($scope.review >= 4.9) {
+                        $scope.review_color = "#ffd000"
+                    } else {
+                        $scope.review_color = "#30d030"
+                    }
+                }
+            }
+        }
+        
+        $scope.$watch(function () {
+            update()
+        })
+        update()
+      }
+    }
+  })
+  

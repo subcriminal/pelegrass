@@ -27,8 +27,13 @@
 
       <a class="im_message_from_photo pull-left" my-peer-photolink="::historyMessage.fromID" img-class="im_message_from_photo"></a>
 
+      <div ng-if="::historyMessage.fwdFromID && historyMessage.media">
+        <a class="im_message_author_from" my-peer-link="historyMessage.fwdFromID"></a>
+        <reviews-rank showall="true" value="historyMessage.fwdFromID" class="im_message_reviews_rank"></reviews-rank>
+      </div>
       <div class="im_message_meta">
-        <div class="im_message_views_wrap" ng-if="::historyMessage.views > 0">
+        <img class="im_message_delivery_img" ng-if="historyMessage.delivery" src="img/delivery.png"></img>
+        <div class="im_message_views_wrap" ng-if="::historyMessage.views > 0 && historyMessage.media">
           <div class="im_message_views">
             <i class="icon-message-views"></i><span class="im_message_views_cnt" my-message-views="historyMessage.mid"></span>
           </div>
@@ -37,7 +42,7 @@
           <i class="icon-message-status" tooltip="{{'message_action_retry' | i18n}}"></i>
         </a>
         <i ng-if="::historyMessage.pFlags.unread &amp;&amp; historyMessage.pFlags.out || historyMessage.pending || false" class="icon-message-status" ng-show="!historyMessage.error"></i>
-        <span class="im_message_date">
+        <span class="im_message_date" ng-if="historyMessage.media">
           <span class="im_message_edited" my-message-edited="historyMessage.mid"></span>
           <span class="im_message_date_text" ng-bind="::historyMessage.date | time"></span>
         </span>

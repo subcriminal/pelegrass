@@ -1,12 +1,12 @@
 {
-  "name": "Telegram",
-  "description": "Telegram Web App.\nMore info & source code here: https://github.com/zhukov/webogram",
-  "version": "0.6.0",
+  "name": "Pelegrass",
+  "description": "Telegrass/Telegram Web App.\nMore info & source code here: https://github.com/pelegrass",
+  "version": "0.0.1",
   "type": "privileged",
   "launch_path": "/index.html",
   "developer": {
-    "name": "Igor Zhukov",
-    "url": "https://github.com/zhukov"
+    "name": "Pelegrass",
+    "url": "https://github.com/pelegrass"
   },
   "installs_allowed_from": [
     "*"

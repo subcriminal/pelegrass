@@ -1,5 +1,6 @@
 <span class="im_short_message_media" ng-if="message.media" ng-switch="message.media._">
   <span ng-switch-when="messageMediaPhoto" my-i18n="conversation_media_photo"></span>
+  <span ng-switch-when="messageMediaPhoto" my-peer-link="message.fwdFromID" peer-watch="true"></span>
   <span ng-switch-when="messageMediaDocument" ng-switch="message.media.document.type || false">
     <span ng-switch-when="sticker">
       <span ng-bind-html="message.media.document.stickerEmoji"></span>

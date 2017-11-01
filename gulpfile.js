@@ -120,7 +120,7 @@ gulp.task('copy-locales', function () {
 
 gulp.task('compress-dist', ['build'], function () {
   return gulp.src('**/*', {cwd: path.join(process.cwd(), '/dist')})
-    .pipe($.zip('webogram_v' + packageJson.version + '.zip'))
+    .pipe($.zip('pelegrass_v' + packageJson.version + '.zip'))
     .pipe(gulp.dest('releases'))
 })
 
@@ -205,8 +205,8 @@ gulp.task('add-appcache-manifest', ['build'], function () {
       timestamp: false,
       hash: true,
       network: ['http://*', 'https://*', '*'],
-      filename: 'webogram.appcache',
-      exclude: ['webogram.appcache', 'app.manifest']
+      filename: 'pelegrass.appcache',
+      exclude: ['pelegrass.appcache', 'app.manifest']
     })
   )
     .pipe(gulp.dest('./dist'))
