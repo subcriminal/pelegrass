@@ -85,7 +85,7 @@ gulp.task('copy', function () {
       .pipe(gulp.dest('dist/js/lib')),
     gulp.src('app/vendor/closure/long.js')
       .pipe(gulp.dest('dist/vendor/closure')),
-    gulp.src(['app/css/desktop.css', 'app/css/mobile.css'])
+    gulp.src(['app/css/desktop.css', 'app/css/mobile.css', 'app/css/pelegrass.css'])
       .pipe(gulp.dest('dist/css')),
     gulp.src('app/vendor/jsbn/jsbn_combined.js')
       .pipe(gulp.dest('dist/vendor/jsbn')),
