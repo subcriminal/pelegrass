@@ -20,3 +20,5 @@
 
 
 <p dir='rtl' align='right'>המערכת היא פורק של פרוייקט [Webogram](https://web.telegram.org) ומשוחררת תחת רשיון GPL 3. </p>
+
+[![Run on Repl.it](https://repl.it/badge/github/pelegrass/pelegrass)](https://repl.it/github/pelegrass/pelegrass)
